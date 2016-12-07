@@ -1,10 +1,10 @@
 ---
 - name: Install php-fpm and deps
   sudo: yes
+  with_items: "{{ php_packages }}"
   apt:
     pkg: "{{ item.name }}"
     state: present
-  with_items: php_packages
 
 - name: Copy php.ini configuration
   sudo: yes
